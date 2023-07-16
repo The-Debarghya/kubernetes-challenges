@@ -1,0 +1,14 @@
+apiVersion: networking.k8s.io/v1
+kind: NetworkPolicy
+metadata:
+  name: charms-and-students
+  namespace: charms
+spec:
+  podSelector: {}
+  ingress:
+    - from:
+      - podSelector:
+          matchLabels:
+            hogwarts: admitted
+  policyTypes:
+  - Ingress

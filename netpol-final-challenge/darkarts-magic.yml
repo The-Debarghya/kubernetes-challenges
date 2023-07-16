@@ -1,0 +1,27 @@
+apiVersion: networking.k8s.io/v1
+kind: NetworkPolicy
+metadata:
+  name: darkarts-magic
+  namespace: darkarts
+spec:
+  podSelector: {}
+  ingress:
+    - from:
+      - namespaceSelector:
+          matchLabels:
+            name: default
+        podSelector:
+          matchLabels:
+            i-am: dumbledore
+  egress:
+    - to:
+      - ipBlock:
+          cidr: 10.0.0.0/24
+      ports:
+      - port: 53
+        protocol: TCP
+      - port: 53
+        protocol: UDP
+  policyTypes:
+  - Ingress
+  - Egress

@@ -1,0 +1,20 @@
+apiVersion: networking.k8s.io/v1
+kind: NetworkPolicy
+metadata:
+  name: potions-rules
+  namespace: potions
+spec:
+  podSelector: {}
+  ingress:
+    - from:
+      - podSelector:
+          matchLabels:
+            class: potions
+  egress:
+    - to:
+      - podSelector:
+          matchLabels:
+            class: potions
+  policyTypes:
+  - Ingress
+  - Egress
