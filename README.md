@@ -1,2 +1,2 @@
 # kubernetes-challenges
-Some of the challenges I solved while preparing for CKA.
+Some of the challenges from kodekloud I solved while preparing for CKA.
